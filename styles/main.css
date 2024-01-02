@@ -35,7 +35,8 @@
     cursor: pointer;
 }
 
-#create-button:active {
+#create-button:active,
+#create-button:hover {
     background: rgb(42, 129, 42);
 }
 
@@ -82,11 +83,13 @@
     cursor: pointer;
 }
 
-.edit:active {
+.edit:active,
+.edit:hover {
     color: rgb(158, 134, 0);
 }
 
-.delete:active {
+.delete:active,
+.delete:hover {
     color: rgb(160, 0, 0);
 }
 
