@@ -88,6 +88,10 @@
     border-bottom: 1px rgb(94, 94, 94) solid;
 }
 
-.task>li:nth-child(3) {
+.task>li:nth-child(4) {
     margin-left: auto;
+}
+
+.task-checkbox {
+    margin-right: 5px;
 }

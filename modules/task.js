@@ -19,4 +19,24 @@ export default class Task {
 
         return `${splittedDate[0]} ${splittedDate[1]}`;
     }
+
+    get status() {
+        return this.#status;
+    }
+
+    get id() {
+        return this.#id;
+    }
+
+    get date() {
+        return this.#date;
+    }
+
+    get name() {
+        return this.#name;
+    }
+
+    get description() {
+        return this.#description;
+    }
 }

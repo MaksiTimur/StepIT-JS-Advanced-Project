@@ -19,6 +19,12 @@ select {
     padding: 30px;
 }
 
-button:hover {
+button:hover,
+select:hover {
     cursor: pointer;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
 }
