@@ -68,17 +68,13 @@
 }
 
 .edit {
-    padding: 2px 4px;
     border-radius: 4px;
-    color: white;
-    background: rgb(0, 139, 0);
+    color: rgb(204, 174, 3);
 }
 
 .delete {
-    padding: 2px 4px;
     border-radius: 4px;
-    color: white;
-    background: rgb(218, 0, 0);
+    color: rgb(218, 0, 0);
 }
 
 .edit:hover,
@@ -87,11 +83,11 @@
 }
 
 .edit:active {
-    background: rgb(0, 97, 0);
+    color: rgb(158, 134, 0);
 }
 
 .delete:active {
-    background: rgb(160, 0, 0);
+    color: rgb(160, 0, 0);
 }
 
 .task:not(:last-child) {
