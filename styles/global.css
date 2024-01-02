@@ -1,0 +1,12 @@
+body {
+    background: rgb(58, 58, 117);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+select {
+    padding: 4px;
+    border-radius: 8px;
+}

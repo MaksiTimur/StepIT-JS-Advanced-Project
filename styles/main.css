@@ -1,0 +1,103 @@
+.main-wrapper {
+    background: rgb(247, 247, 247);
+    border: 2px rgb(53, 53, 53) solid;
+    border-radius: 20px;
+    box-shadow: 0 0 20px 15px rgba(0, 0, 0, .2);
+    padding: 30px;
+    height: 800px;
+    width: 1000px;
+}
+
+.toolbar {
+    margin-bottom: 10px;
+}
+
+.tools {
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+}
+
+.tools>.tool:nth-child(2) {
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+#create-button {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 16px;
+    color: white;
+    background: rgb(50, 151, 50);
+}
+
+#create-button:hover {
+    cursor: pointer;
+}
+
+#create-button:active {
+    background: rgb(42, 129, 42);
+}
+
+.taskbar {
+    border-bottom: 2px rgb(53, 53, 53) solid;
+    border-top: 2px rgb(53, 53, 53) solid;
+}
+
+.tasks {
+    max-height: 690px;
+    overflow: scroll;
+}
+
+.task {
+    display: flex;
+    padding: 10px 8px;
+}
+
+.task * {
+    display: inline-block;
+}
+
+.task>.name {
+    margin-right: 8px;
+}
+
+.task>.description {
+    color: rgb(92, 92, 92);
+    max-width: fit-content;
+}
+
+.edit {
+    padding: 2px 4px;
+    border-radius: 4px;
+    color: white;
+    background: rgb(0, 139, 0);
+}
+
+.delete {
+    padding: 2px 4px;
+    border-radius: 4px;
+    color: white;
+    background: rgb(218, 0, 0);
+}
+
+.edit:hover,
+.delete:hover {
+    cursor: pointer;
+}
+
+.edit:active {
+    background: rgb(0, 97, 0);
+}
+
+.delete:active {
+    background: rgb(160, 0, 0);
+}
+
+.task:not(:last-child) {
+    border-bottom: 1px rgb(94, 94, 94) solid;
+}
+
+.task>li:nth-child(3) {
+    margin-left: auto;
+}
