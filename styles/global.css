@@ -10,3 +10,15 @@ select {
     padding: 4px;
     border-radius: 8px;
 }
+
+.block {
+    background: rgb(247, 247, 247);
+    border: 2px rgb(53, 53, 53) solid;
+    border-radius: 20px;
+    box-shadow: 0 0 20px 15px rgba(0, 0, 0, .2);
+    padding: 30px;
+}
+
+button:hover {
+    cursor: pointer;
+}

@@ -1,9 +1,4 @@
 .main-wrapper {
-    background: rgb(247, 247, 247);
-    border: 2px rgb(53, 53, 53) solid;
-    border-radius: 20px;
-    box-shadow: 0 0 20px 15px rgba(0, 0, 0, .2);
-    padding: 30px;
     height: 800px;
     width: 1000px;
 }
@@ -29,10 +24,6 @@
     font-size: 16px;
     color: white;
     background: rgb(50, 151, 50);
-}
-
-#create-button:hover {
-    cursor: pointer;
 }
 
 #create-button:active,

@@ -11,7 +11,23 @@
 </head>
 
 <body>
-    <div class="main-wrapper">
+    <dialog id="new-task" class="block">
+        <div class="dialog-wrapper">
+            <h1>Creating task</h1>
+            <form action="">
+                <label for="dialog-name">Task name</label>
+                <input id="dialog-name" type="text">
+                <br>
+                <label for="dialog-description">Task description</label>
+                <br>
+                <textarea name="dialog-description" id="dialog-description" cols="20" rows="8"></textarea>
+            </form>
+
+            <button class="dialog-confirm">Confirm</button>
+            <button class="dialog-cancel">Cancel</button>
+        </div>
+    </dialog>
+    <div class="main-wrapper block">
         <div class="toolbar">
             <ul class="tools">
                 <li class="tool">

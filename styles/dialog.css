@@ -1,0 +1,56 @@
+dialog {
+    background: rgb(247, 247, 247);
+    margin: auto;
+    min-width: 300px;
+    max-width: 500px;
+    max-height: 500px;
+}
+
+.dialog-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.dialog-wrapper h1 {
+    margin-bottom: 10px;
+}
+
+.dialog-wrapper label {
+    margin-right: 5px;
+}
+
+.dialog-wrapper textarea {
+    margin-bottom: 5px;
+}
+
+.dialog-wrapper button {
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.dialog-wrapper .dialog-confirm {
+    margin-bottom: 5px;
+    background: rgb(50, 151, 50);
+}
+
+.dialog-wrapper .dialog-cancel {
+    margin-bottom: 5px;
+    background: rgb(218, 0, 0);
+}
+
+.dialog-confirm:active,
+.dialog-confirm:hover {
+    background: rgb(42, 129, 42);
+}
+
+.dialog-cancel:active,
+.dialog-cancel:hover {
+    background: rgb(160, 0, 0);
+}
+
+.dialog::backdrop {
+    background: rgba(0, 0, 0, .3);
+}
