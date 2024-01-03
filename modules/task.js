@@ -39,4 +39,20 @@ export default class Task {
     get description() {
         return this.#description;
     }
+
+    set status(newStatus) {
+        this.#status = newStatus;
+    }
+
+    set name(newName) {
+        // RegExp check
+
+        this.#name = newName;
+    }
+
+    set description(newDesc) {
+        // RegExp check
+
+        this.#description = newDesc;
+    }
 }
