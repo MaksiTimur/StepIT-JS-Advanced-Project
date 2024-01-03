@@ -55,4 +55,14 @@ export default class Task {
 
         this.#description = newDesc;
     }
+
+    toJSON() {
+        return {
+            status: this.#status,
+            id: this.#id,
+            date: this.#date,
+            name: this.#name,
+            description: this.#description
+        }
+    }
 }
