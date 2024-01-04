@@ -1,0 +1,13 @@
+.edit-name,
+.edit-description {
+    margin-bottom: 24px;
+}
+
+.main-wrapper input,
+.main-wrapper textarea {
+    width: 50%;
+}
+
+.edit-confirm {
+    margin-bottom: 10px;
+}

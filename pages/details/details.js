@@ -10,7 +10,7 @@ const task = JSON.parse(localStorage.getItem('currentTask'));
 
 const wrapper = document.querySelector('.main-wrapper');
 
-const backButton = document.querySelector('.details-back');
+const backButton = document.querySelector('.back-button');
 backButton.addEventListener('click', () => {
     window.location.href = "/index.html";
 });

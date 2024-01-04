@@ -5,10 +5,19 @@ export default class TaskList {
         if (new.target) throw new Error("Can't create instance of TaskList");
     }
 
+    static save() {
+        localStorage.setItem('tasks', JSON.stringify(this.#tasks));
+    }
+
+    static load() {
+        const JSONTasks = localStorage.getItem('tasks');
+
+        if (JSONTasks === null) return;
+        this.#tasks = JSON.parse(JSONTasks);
+    }
+
     static update() {
         const tasksElement = document.querySelector('.tasks');
-        localStorage.setItem('tasks', JSON.stringify(this.#tasks));
-
         tasksElement.innerHTML = '';
 
         this.#tasks.forEach(task => {
@@ -42,15 +51,9 @@ export default class TaskList {
         });
     }
 
-    static load() {
-        const JSONTasks = localStorage.getItem('tasks');
-
-        if (JSONTasks === null) return;
-        this.#tasks = JSON.parse(JSONTasks);
-    }
-
     static add(task) {
         this.#tasks.push(task);
+        this.save();
         this.update();
     }
 
@@ -58,12 +61,13 @@ export default class TaskList {
         for (let i = 0; i < this.#tasks.length; i++) {
             const task = this.#tasks[i];
 
-            if (task.id === taskID) {
-                this.#tasks.splice(i, 1);
-                break;
-            }
+            if (task.id !== taskID) continue;
+
+            this.#tasks.splice(i, 1);
+            break;
         }
 
+        this.save();
         this.update();
     }
 
@@ -75,6 +79,21 @@ export default class TaskList {
 
             localStorage.setItem('currentTask', JSON.stringify(task));
         });
+    }
+
+    static updateTask(changedTask) {
+        this.load();
+
+        for (let i = 0; i < this.#tasks.length; i++) {
+            const task = this.#tasks[i];
+
+            if (task.id !== changedTask.id) continue;
+
+            task.name = changedTask.name;
+            task.description = changedTask.description;
+        }
+
+        this.save();
     }
 
     // static filter

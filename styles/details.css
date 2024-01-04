@@ -1,16 +1,8 @@
-.main-wrapper>.details-status {
-    margin-bottom: auto;
-}
-
 .details {
     border-bottom: 1px rgb(94, 94, 94) solid;
-    margin-bottom: 15px;
+    margin-bottom: 16px;
 }
 
 .details span {
     color: rgb(92, 92, 92);
-}
-
-.details-back {
-    margin-top: 15px;
 }

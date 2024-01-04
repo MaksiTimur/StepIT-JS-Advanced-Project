@@ -39,3 +39,7 @@ a:link,
 a:visited {
     color: black;
 }
+
+textarea {
+    height: 50px;
+}

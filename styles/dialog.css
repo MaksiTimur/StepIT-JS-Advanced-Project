@@ -28,11 +28,6 @@ dialog {
     width: 100%;
 }
 
-.dialog-wrapper textarea {
-    resize: none;
-    height: 50px;
-}
-
 .dialog-wrapper button {
     width: 100%;
     padding: 8px 16px;
