@@ -47,7 +47,7 @@ function taskAction(e) {
             // Set task status
             break;
         case 'name':
-            window.location.href=`/pages/details/details.html?edit=${taskID}`;
+            window.location.href=`/pages/details/details.html?details=${taskID}`;
         case 'edit':
             // Open details page
             break;

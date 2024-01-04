@@ -1,7 +1,7 @@
 const link = document.location.href;
 const url = new URL(link);
 const queryParams = url.searchParams;
-const taskID = queryParams.get('edit');
+const taskID = queryParams.get('details');
 
 const wrapper = document.querySelector('.main-wrapper');
 
