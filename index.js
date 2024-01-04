@@ -10,9 +10,12 @@ const newTaskName = document.querySelector('#dialog-name')
 const newTaskDescription = document.querySelector('#dialog-description');
 
 const tasks = document.querySelector('.tasks');
-document.onload = TaskList.load();
+window.addEventListener('load', () => {
+    TaskList.load();
+    TaskList.update();
+});
 
-createButton.addEventListener('click', () => {
+createButton.addEventListener('click', (e) => {
     newTaskName.value = '';
     newTaskDescription.value = '';
     newTaskDialog.showModal();
@@ -29,7 +32,9 @@ function closeDialog(dialog) {
     dialog.close();
 }
 
-function createTask() {
+function createTask(e) {
+    e.preventDefault();
+
     const task = new Task(newTaskName.value, newTaskDescription.value);
     TaskList.add(task);
 
@@ -40,18 +45,23 @@ function taskAction(e) {
     const target = e.target;
     const taskID = target.closest('.task').id;
 
-    console.log(target.classList[0]);
-
     switch (target.classList[0]) {
         case 'checkbox':
             // Set task status
             break;
         case 'name':
             window.location.href=`/pages/details/details.html?details=${taskID}`;
+            break;
         case 'edit':
-            window.location.href=`/pages/details/details.html?edit=${taskID}`;
+            window.location.href=`/pages/edit/edit.html?edit=${taskID}`;
+            break;
+        case 'editpath':
+            window.location.href=`/pages/edit/edit.html?edit=${taskID}`;
             break;
         case 'delete':
+            TaskList.remove(taskID)
+            break;
+        case 'deletepath':
             TaskList.remove(taskID)
             break;
     }

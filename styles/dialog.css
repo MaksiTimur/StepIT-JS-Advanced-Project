@@ -24,8 +24,12 @@ dialog {
     margin-bottom: 24px;
 }
 
-.dialog-wrapper #dialog-description {
+.dialog-wrapper input {
     width: 100%;
+}
+
+.dialog-wrapper textarea {
+    resize: none;
     height: 50px;
 }
 
