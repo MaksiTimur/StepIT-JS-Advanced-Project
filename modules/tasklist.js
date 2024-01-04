@@ -13,13 +13,10 @@ export default class TaskList {
         tasksElement.innerHTML = '';
 
         this.#tasks.forEach(task => {
-            tasksElement.insertAdjacentHTML('beforeend',
-            `
+            const taskHTML = `
             <ul id="${task.id}" class="task">
             <li class="checkbox"><input class="task-checkbox" type="checkbox" name="task-checkbox">
-            <li class="name">
-                <a href="/pages/details/details.html?edit=${task.id}">${task.name}</a>
-            </li>
+            <li class="name">${task.name}</li>
             <li class="description">${task.description}</li>
             <li class="date">${task.date}</li>
             <ul class="tools">
@@ -40,13 +37,15 @@ export default class TaskList {
                     </svg>
                 </li>
             </ul>
-            `);
+            `;
+
+            tasksElement.insertAdjacentHTML('beforeend', taskHTML);
         });
     }
 
     static load() {
         const JSONTasks = localStorage.getItem('tasks');
-        
+
         if (JSONTasks === null) return;
 
         this.#tasks = JSON.parse(JSONTasks);

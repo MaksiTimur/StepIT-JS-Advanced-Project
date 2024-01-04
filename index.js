@@ -40,10 +40,14 @@ function taskAction(e) {
     const target = e.target;
     const taskID = target.closest('.task').id;
 
+    console.log(target.classList[0]);
+
     switch (target.classList[0]) {
         case 'checkbox':
             // Set task status
             break;
+        case 'name':
+            window.location.href=`/pages/details/details.html?edit=${taskID}`;
         case 'edit':
             // Open details page
             break;

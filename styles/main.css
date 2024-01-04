@@ -88,3 +88,8 @@
 .task-checkbox {
     margin-right: 10px;
 }
+
+.name:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
