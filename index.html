@@ -16,14 +16,16 @@
             <h1>Creating task</h1>
             <form action="">
                 <label for="dialog-name">Task name</label>
+                <br>
                 <input id="dialog-name" type="text">
                 <br>
                 <label for="dialog-description">Task description</label>
                 <br>
-                <textarea name="dialog-description" id="dialog-description" cols="20" rows="8"></textarea>
+                <input id="dialog-description" name="dialog-description" type="text">
+                <br>
+                <button class="dialog-confirm" type="submit">Confirm</button>
             </form>
 
-            <button class="dialog-confirm">Confirm</button>
             <button class="dialog-cancel">Cancel</button>
         </div>
     </dialog>

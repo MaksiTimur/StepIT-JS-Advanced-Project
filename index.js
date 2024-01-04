@@ -49,7 +49,7 @@ function taskAction(e) {
         case 'name':
             window.location.href=`/pages/details/details.html?details=${taskID}`;
         case 'edit':
-            // Open details page
+            window.location.href=`/pages/details/details.html?edit=${taskID}`;
             break;
         case 'delete':
             TaskList.remove(taskID)

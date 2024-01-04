@@ -8,7 +8,6 @@ export default class TaskList {
     static update() {
         const tasksElement = document.querySelector('.tasks');
         localStorage.setItem('tasks', JSON.stringify(this.#tasks));
-        console.log(JSON.parse(localStorage.getItem('tasks')));
 
         tasksElement.innerHTML = '';
 

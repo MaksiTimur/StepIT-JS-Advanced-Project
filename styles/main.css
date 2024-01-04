@@ -18,6 +18,11 @@
     margin-right: 24px;
 }
 
+.task {
+    display: flex;
+    align-items: center;
+}
+
 #create-button {
     padding: 8px 16px;
     border-radius: 8px;
