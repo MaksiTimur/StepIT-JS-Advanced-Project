@@ -54,12 +54,12 @@
 
 .edit {
     border-radius: 4px;
-    color: rgb(204, 174, 3);
+    color: rgb(196, 184, 119);
 }
 
 .delete {
     border-radius: 4px;
-    color: rgb(218, 0, 0);
+    color: rgb(184, 120, 120);
 }
 
 .edit:hover,
@@ -69,12 +69,12 @@
 
 .edit:active,
 .edit:hover {
-    color: rgb(158, 134, 0);
+    color: rgb(207, 188, 12);
 }
 
 .delete:active,
 .delete:hover {
-    color: rgb(160, 0, 0);
+    color: rgb(197, 34, 34);
 }
 
 .task:not(:last-child) {
