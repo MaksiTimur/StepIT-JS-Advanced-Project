@@ -76,6 +76,7 @@ export default class TaskList {
 
     static requestTask(taskID) {
         this.load();
+        localStorage.setItem('currentTask', JSON.stringify('not found'));
 
         this.#tasks.forEach(task => {
             if (task.id !== taskID) return;

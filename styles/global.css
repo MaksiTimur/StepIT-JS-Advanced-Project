@@ -43,3 +43,8 @@ a:visited {
 textarea {
     height: 50px;
 }
+
+.not-found {
+    font-size: 24px;
+    margin-bottom: 16px;
+}
