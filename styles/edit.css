@@ -1,9 +1,10 @@
 .edit-name,
-.edit-description {
+.edit-description,
+.edit-status {
     margin-bottom: 24px;
 }
 
-.main-wrapper input,
+.main-wrapper input[type="text"],
 .main-wrapper textarea {
     width: 50%;
 }

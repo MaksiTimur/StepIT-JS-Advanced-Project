@@ -43,20 +43,26 @@ function createTask(e) {
 
 function taskAction(e) {
     const target = e.target;
+
+    if (target.closest('.task') === null) return;
     const taskID = target.closest('.task').id;
 
     switch (target.classList[0]) {
-        case 'checkbox':
-            // Set task status
+        case 'task-checkbox':
+            TaskList.requestTask(taskID);
+            const task = JSON.parse(localStorage.getItem('currentTask'));
+
+            task.status = target.checked;
+            TaskList.updateTask(task);
             break;
         case 'name':
-            window.location.href=`/pages/details/details.html?details=${taskID}`;
+            window.location.href = `/pages/details/details.html?details=${taskID}`;
             break;
         case 'edit':
-            window.location.href=`/pages/edit/edit.html?edit=${taskID}`;
+            window.location.href = `/pages/edit/edit.html?edit=${taskID}`;
             break;
         case 'editpath':
-            window.location.href=`/pages/edit/edit.html?edit=${taskID}`;
+            window.location.href = `/pages/edit/edit.html?edit=${taskID}`;
             break;
         case 'delete':
             TaskList.remove(taskID)

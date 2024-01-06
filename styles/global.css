@@ -30,9 +30,9 @@ select:hover {
     cursor: pointer;
 }
 
-input[type="checkbox"] {
-    width: 20px;
+.main-wrapper input[type="checkbox"] {
     height: 20px;
+    width: 20px;
 }
 
 a:link,

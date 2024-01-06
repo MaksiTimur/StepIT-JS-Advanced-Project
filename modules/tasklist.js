@@ -48,6 +48,9 @@ export default class TaskList {
             `;
 
             tasksElement.insertAdjacentHTML('beforeend', taskHTML);
+
+            const taskCheckbox = document.querySelector(`#${task.id} .task-checkbox`);
+            taskCheckbox.checked = task.status;
         });
     }
 
@@ -91,6 +94,7 @@ export default class TaskList {
 
             task.name = changedTask.name;
             task.description = changedTask.description;
+            task.status = changedTask.status;
         }
 
         this.save();

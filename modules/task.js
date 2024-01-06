@@ -6,7 +6,7 @@ export default class Task {
     #description;
 
     constructor(name, description) {
-        this.#id = Math.random().toString(16).slice(2);
+        this.#id = 'id' + Math.random().toString(16).slice(2);
         this.#date = Task.#getDate();
 
         this.#name = name;
