@@ -25,8 +25,6 @@ export default class TaskList {
             <ul id="${task.id}" class="task">
             <li class="checkbox"><input class="task-checkbox" type="checkbox" name="task-checkbox">
             <li class="name">${task.name}</li>
-            <li class="description">${task.description}</li>
-            <li class="date">${task.date}</li>
             <ul class="tools">
                 <li class="tool">
                     <svg class="edit" width="20" height="20" fill="none" viewBox="0 0 24 24"

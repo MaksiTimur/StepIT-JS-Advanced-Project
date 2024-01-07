@@ -8,12 +8,12 @@
 }
 
 .tools {
-    padding: 0 10px;
     display: flex;
     align-items: center;
+    margin-left: auto;
 }
 
-.tools>.tool:nth-child(2) {
+.toolbar>.tools>.tool:nth-child(2) {
     margin-left: auto;
     margin-right: 24px;
 }
@@ -46,11 +46,6 @@
     margin-right: 8px;
 }
 
-.task>.description {
-    color: rgb(92, 92, 92);
-    max-width: fit-content;
-}
-
 .edit {
     border-radius: 4px;
     color: rgb(196, 184, 119);
@@ -78,10 +73,6 @@
 
 .task:not(:last-child) {
     border-bottom: 1px rgb(94, 94, 94) solid;
-}
-
-.task>li:nth-child(4) {
-    margin-left: auto;
 }
 
 .task-checkbox {
