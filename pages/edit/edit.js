@@ -29,6 +29,10 @@ backButton.addEventListener('click', () => {
 });
 
 function edit() {
+    const name = document.querySelector('.edit-name');
+    const description = document.querySelector('.edit-description');
+    const status = document.querySelector('.edit-status');
+
     submitButton.addEventListener('click', (e) => {
         e.preventDefault();
     
@@ -40,11 +44,7 @@ function edit() {
         window.location.href = "/index.html";
     });
 
-    const name = document.querySelector('.edit-name');
-    const description = document.querySelector('.edit-description');
-    const status = document.querySelector('.edit-status');
-
     name.value = task.name;
     description.value = task.description;
-    status.value = true;
+    status.checked = task.status;
 }
