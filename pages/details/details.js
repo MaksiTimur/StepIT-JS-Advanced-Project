@@ -8,7 +8,6 @@ const taskID = queryParams.get('details');
 const wrapper = document.querySelector('.main-wrapper');
 
 const task = TaskList.requestTask(taskID);
-console.log(task);
 
 if (task !== 'not found') {
     viewDetails();

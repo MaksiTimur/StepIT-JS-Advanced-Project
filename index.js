@@ -10,12 +10,32 @@ const newTaskName = document.querySelector('#dialog-name')
 const newTaskDescription = document.querySelector('#dialog-description');
 
 const tasks = document.querySelector('.tasks');
+
+const toolBar = document.querySelector('.toolbar');
+const filter = document.querySelector('#filter');
+const sort = document.querySelector('#sort');
+
 window.addEventListener('load', () => {
     TaskList.load();
     TaskList.update();
 });
 
-createButton.addEventListener('click', (e) => {
+toolBar.addEventListener('change', (e) => {
+    const target = e.target;
+    const id = target.id;
+
+    if (!(id === 'sort' || id === 'filter')) return;
+    
+    const options = {
+        filter: `${filter.value}`,
+        sort: `${sort.value}`
+    }
+
+    TaskList.updateOptions(options);
+    TaskList.update();
+});
+
+createButton.addEventListener('click', () => {
     newTaskName.value = '';
     newTaskDescription.value = '';
     newTaskDialog.showModal();
@@ -53,6 +73,7 @@ function taskAction(e) {
 
             task.status = target.checked;
             TaskList.updateTask(task);
+            TaskList.update();
             break;
         case 'name':
             window.location.href = `/pages/details/details.html?details=${taskID}`;

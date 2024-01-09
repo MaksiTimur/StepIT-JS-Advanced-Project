@@ -1,5 +1,9 @@
 export default class TaskList {
     static #tasks = [];
+    static #options = {
+        filter: 'all',
+        sort: 'alphabet'
+    };
 
     constructor() {
         if (new.target) throw new Error("Can't create instance of TaskList");
@@ -7,20 +11,31 @@ export default class TaskList {
 
     static save() {
         localStorage.setItem('tasks', JSON.stringify(this.#tasks));
+        localStorage.setItem('options', JSON.stringify(this.#options));
     }
 
     static load() {
         const JSONTasks = localStorage.getItem('tasks');
+        const options = localStorage.getItem('options');
 
         if (JSONTasks === null) return;
         this.#tasks = JSON.parse(JSONTasks);
+
+        if (options === null) return;
+        this.#options = JSON.parse(options);
     }
 
     static update() {
+        // Set tasks
+        if (this.#tasks.length === 0) return;
+
         const tasksElement = document.querySelector('.tasks');
         tasksElement.innerHTML = '';
 
-        this.#tasks.forEach(task => {
+        let selectedTasks = this.#filter(this.#tasks);
+        selectedTasks = this.#sort(selectedTasks);
+
+        selectedTasks.forEach(task => {
             const taskHTML = `
             <ul id="${task.id}" class="task">
             <li class="checkbox"><input class="task-checkbox" type="checkbox" name="task-checkbox">
@@ -47,8 +62,16 @@ export default class TaskList {
 
             tasksElement.insertAdjacentHTML('beforeend', taskHTML);
 
+            // Set checkbox status
             const taskCheckbox = document.querySelector(`#${task.id} .task-checkbox`);
             taskCheckbox.checked = task.status;
+
+            // Set options
+            const filter = document.querySelector('#filter');
+            const sort = document.querySelector('#sort');
+
+            filter.value = this.#options.filter;
+            sort.value = this.#options.sort;
         });
     }
 
@@ -77,7 +100,6 @@ export default class TaskList {
 
         for (const task of this.#tasks) {
             if (task.id !== taskID) continue;
-
             return task;
         }
     }
@@ -98,7 +120,85 @@ export default class TaskList {
         this.save();
     }
 
-    // static filter
+    static updateOptions(changedOptions) {
+        this.load();
 
-    // static sort
+        this.#options.filter = changedOptions.filter;
+        this.#options.sort = changedOptions.sort;
+
+        this.save();
+    }
+
+    static #filter(tasks) {
+        let filteredTasks = tasks;
+
+        switch (this.#options.filter) {
+            case 'done':
+                filteredTasks = filteredTasks.filter((task) => {
+                    return task.status;
+                });
+                break;
+
+            case 'undone':
+                filteredTasks = filteredTasks.filter((task) => {
+                    return !task.status;
+                });
+                break;
+        }
+
+        return filteredTasks;
+    }
+
+    static #sort(tasks) {
+        let sortedTasks = tasks;
+
+        switch (this.#options.sort) {
+            case 'alphabet':
+                return sortedTasks.sort(function (a, b) {
+                    const name1 = a.name;
+                    const name2 = b.name;
+
+                    const name1InLowerCase = name1.toLowerCase();
+                    const name2InLowerCase = name2.toLowerCase();
+
+                    if (name1InLowerCase > name2InLowerCase) return 1;
+                    if (name1InLowerCase < name2InLowerCase) return -1;
+
+                    if (name1 > name2) return 1;
+                    if (name1 < name2) return -1;
+
+                    return 0;
+                });
+
+            case 'date':
+                return sortedTasks.sort(function (a, b) {
+                    const dateA = dateFromString(a.date);
+                    const dateB = dateFromString(b.date);
+
+                    function dateFromString(str) {
+                        let splittedStr = str.split(' ');
+
+                        let date = splittedStr[0];
+                        let time = splittedStr[1];
+
+                        let splittedDate = date.split('.');
+                        let splittedTime = time.split(':');
+
+                        let day = splittedDate[0];
+                        let month = splittedDate[1];
+                        let year = splittedDate[2];
+
+                        let hours = splittedTime[0];
+                        let minutes = splittedTime[1];
+                        let seconds = splittedTime[2];
+
+                        return new Date(year, month - 1, day, hours, minutes, seconds);
+                    }
+
+                    return dateB.getTime() - dateA.getTime();
+                });
+        }
+
+        return sortedTasks;
+    }
 }
