@@ -8,8 +8,7 @@ const taskID = queryParams.get('edit');
 const submitButton = document.querySelector('.edit-confirm');
 const backButton = document.querySelector('.back-button');
 
-TaskList.requestTask(taskID);
-const task = JSON.parse(localStorage.getItem('currentTask'));
+const task = TaskList.requestTask(taskID);;
 
 if (task !== 'not found') {
     edit();

@@ -7,8 +7,8 @@ const taskID = queryParams.get('details');
 
 const wrapper = document.querySelector('.main-wrapper');
 
-TaskList.requestTask(taskID);
-const task = JSON.parse(localStorage.getItem('currentTask'));
+const task = TaskList.requestTask(taskID);
+console.log(task);
 
 if (task !== 'not found') {
     viewDetails();

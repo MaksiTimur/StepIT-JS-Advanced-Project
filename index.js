@@ -49,8 +49,7 @@ function taskAction(e) {
 
     switch (target.classList[0]) {
         case 'task-checkbox':
-            TaskList.requestTask(taskID);
-            const task = JSON.parse(localStorage.getItem('currentTask'));
+            const task = TaskList.requestTask(taskID);;
 
             task.status = target.checked;
             TaskList.updateTask(task);

@@ -74,13 +74,12 @@ export default class TaskList {
 
     static requestTask(taskID) {
         this.load();
-        localStorage.setItem('currentTask', JSON.stringify('not found'));
 
-        this.#tasks.forEach(task => {
-            if (task.id !== taskID) return;
+        for (const task of this.#tasks) {
+            if (task.id !== taskID) continue;
 
-            localStorage.setItem('currentTask', JSON.stringify(task));
-        });
+            return task;
+        }
     }
 
     static updateTask(changedTask) {
