@@ -100,6 +100,7 @@ export default class TaskList {
 
         for (const task of this.#tasks) {
             if (task.id !== taskID) continue;
+            console.log(task);
             return task;
         }
     }

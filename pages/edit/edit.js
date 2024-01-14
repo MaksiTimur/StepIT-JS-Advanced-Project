@@ -10,9 +10,7 @@ const backButton = document.querySelector('.back-button');
 
 const task = TaskList.requestTask(taskID);;
 
-if (task !== 'not found') {
-    edit();
-} else {
+if (task === undefined) {
     const wrapperForm = document.querySelector('.main-wrapper form');
     wrapperForm.innerHTML = '';
 
@@ -21,6 +19,8 @@ if (task !== 'not found') {
     notFoundElement.classList.add('not-found');
 
     wrapperForm.append(notFoundElement);
+} else {
+    edit();
 }
 
 backButton.addEventListener('click', () => {

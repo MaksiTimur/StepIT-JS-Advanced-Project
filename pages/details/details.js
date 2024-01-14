@@ -9,14 +9,14 @@ const wrapper = document.querySelector('.main-wrapper');
 
 const task = TaskList.requestTask(taskID);
 
-if (task !== 'not found') {
-    viewDetails();
-} else {
+if (task === undefined) {
     const notFoundElement = document.createElement('div');
     notFoundElement.textContent = '404 NOT FOUND';
     notFoundElement.classList.add('not-found');
 
     wrapper.insertAdjacentElement('afterbegin', notFoundElement);
+} else {
+    viewDetails();
 }
 
 const backButton = document.querySelector('.back-button');
